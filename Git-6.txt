@@ -1,0 +1,153 @@
+
+
+Git Reset
+=================
+This is the process of toggling between multiple commits
+This is done in 3 ways
+1 Hard reset
+2 Soft reset
+3 Mixed Reset
+
+Hard Reset
+==================
+Here the  HEAD points to an older commit and we can see the data
+as it was present at the time of that commit
+
+1 Create file file1 and stroe the blow data
+  one
+
+2 Send this file into stagging area and local repository
+  git add .
+  git commit -m "a"
+
+3 Modify the same file file1 and store some more data
+  one
+  two
+
+4 Send this file into stagging area and local repository
+  git add .
+  git commit -m "b"
+
+5 Modify the same file one morw time
+  one
+  two
+  three
+
+6 Send this file into stagging area and local repository
+  git add .
+  git commit -m "c"
+
+7 Check the commit history
+  git log --oneline
+
+8 To hard reset from c to b commit
+  git reset --hard b_commitid
+
+9 We will see that HEAD points to b commit and we see the data as it was
+  at the time of b commit
+
+===============================================================================
+Soft Reset
+==============
+This will also make the head point to an older commit but the status
+of git will will show as it was present just before the commit took place
+ie the files will be shown in the stagging area and HEAD will be pointing to
+an older commit
+
+git reset --soft b_commitid
+
+
+Mixed Reset
+==================
+This will also make the head point to an older commit but the status
+of git will will show as it was present 2 steps before the commit took place
+ie the files will be shown as present in the untracked modfied section
+
+git reset --mixed b_commitid
+
+
+
+=======================================================
+Git amend
+==============
+Modifying an existing commit and adding/deleting files from a commit
+is called as git amend
+
+When we make minor modificatiosn to the code and we dont want to
+create a commit for these minor modificatios we can uses git amend
+
+1 Create few commits
+  touch file1
+  git add .
+  git commit -m "a"
+  touch file2
+  git add .
+  git commimt -m "b"
+
+2 Check the commit history
+  git log --oneline
+
+3 Create some more files and send into stagging area
+  touch file3
+  git add .
+
+4 Instead of creating a new commit add them to the current "b" commit
+  git commit --amend -m "b"
+
+5 Check the commit history
+  git log --oneline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
